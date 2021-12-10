@@ -2,6 +2,7 @@ import json
 import time
 import os
 from json import loads as json_loads
+from json import dumps as json_dumps
 from os import path as os_path, getenv
 from sys import exit as sys_exit
 from getpass import getpass
@@ -171,7 +172,7 @@ class Zlapp(Fudan):
             city = geo_api_info["addressComponent"].get("city", "") or province
             district = geo_api_info["addressComponent"].get("district", "")
             gl_info['dailyFudan'] = " ".join(set_q((province, city, district)))
-            gl_info['geoDisturbance'] = geoDisturbance(last_info["d"]["info"]["geo_api_info"])
+            # gl_info['geoDisturbance'] = geoDisturbance(last_info["d"]["info"]["geo_api_info"])
             gl_info = json_dumps(gl_info, indent=4, ensure_ascii=False)
             return True
         else:
