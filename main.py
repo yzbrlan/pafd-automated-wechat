@@ -267,7 +267,6 @@ def iyuu(IYUU_TOKEN):
 
     def send(text, desp=""):
         Form = {'text': text, 'desp': desp}
-        print("Start send msg: " + Form)
         return requests.post(url, data=Form, headers=headers, verify=False)
 
     return send
