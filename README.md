@@ -1,33 +1,40 @@
-# 自动填写 PAFD
+因为 [Limour-dev/daily_fudan_core](https://github.com/Limour-dev/daily_fudan_core) 识别验证码非免费，
+所以结合了两份代码，主要在 [FDUCSLG/pafd-automated](https://github.com/FDUCSLG/pafd-automated) 的基础上加入了 [Limour-dev/daily_fudan_core](https://github.com/Limour-dev/daily_fudan_core) 的微信消息推送的功能 
 
-update: 如果你是 PAFD 的用户，对技术感兴趣，欢迎加入我们的 slack 组织，用 fudan.edu.cn 或者 m.fudan.edu.cn 的学号邮箱[点击这里注册加入 slack](https://join.slack.com/t/fducslg/signup) （可能需要科学上网工具）
+以下说明大部分归原作者 [daily_fudan](https://zhuanlan.zhihu.com/p/136340395) 和 [Limour-dev/daily_fudan_core](https://github.com/Limour-dev/daily_fudan_core) 所有，微信消息推送部分来自于 [Limour-dev/daily_fudan_core](https://github.com/Limour-dev/daily_fudan_core) 所有。
 
-[技术原理解读文章](https://github.com/FDUCSLG/fducslg/blob/master/content/blog/2020-11-23-PAFD-EXPLAINED.md)
+## 📐部署
+<details>
+<summary>查看教程</summary>
 
-update: 如果你收到了填报失败的通知，可以考虑更新一下你的 fork，在你原来 fork 的仓库页面，点击 fetch upstream 即可
+### 1. Fork 仓库代码
+- 项目地址：[yzbrlan/pafd-automated-wechat](https://github.com/yzbrlan/pafd-automated-wechat)
+- 点击右上角`Fork`到自己的账号下
 
-![image](https://user-images.githubusercontent.com/29735669/139017607-a7888bfa-75d6-4949-b498-3a7982158a0b.png)
+![fork](https://i.loli.net/2020/10/28/qpXowZmIWeEUyrJ.png)
+
+- 将仓库默认分支设置为 master 分支
 
 
-credit: 这份代码受 [daily_fudan](https://github.com/k652/daily_fudan) 启发，并参考了其实现方式，在此表示感谢。
+### 2. 添加 账号密码 至 Secrets
 
-首先请注册一个 GitHub 帐号，然后点击右上角的 fork 创建一个副本。
+- 回到项目页面，依次点击`Settings`-->`Secrets`-->`New secret`
 
-![fork](https://github.com/fducslg/pafd-automated/blob/master/docs/fork.png?raw=true)
+![new-secret.png](https://i.loli.net/2020/10/28/sxTuBFtRvzSgUaA.png)
 
-然后在你 fork 的副本中，点击 Settings, Secrets 和 New secret
+然后创建三个值
+- secret名字必须为 `STD_ID` 的在 Value 里填入 `学号`
+- secret名字必须为 `PASSWORD` 的在 Value 里填入 `UIS密码`。这里可以不用担心安全性问题，这些 scecrets 的值只有你能看见，此外因为背后是 GitHub 为你保障安全——GitHub 的安全性应该比复旦的 UIS 要高。
+- secret名字必须为 `IYUU_TOKEN` 的在 Value 中填入 `token`，在 http://iyuu.cn/ 申请 `token` 
 
-![create-secrets](https://github.com/fducslg/pafd-automated/blob/master/docs/create-secrets.png?raw=true)
+### 3. 启用 Actions
 
-然后创建三个值，Name 为 STD_ID 的在 Value 里填入学号
+> Actions 默认为关闭状态，Fork 之后需要手动执行一次，若成功运行其才会激活。
 
-![id](https://github.com/fducslg/pafd-automated/blob/master/docs/id.png?raw=true)
+返回项目主页面，点击上方的`Actions`，再点击左侧的`Go`，再点击`Run workflow`
+    
+![run](https://i.loli.net/2020/10/28/5ylvgdYf9BDMqAH.png)
 
-![password](https://github.com/fducslg/pafd-automated/blob/master/docs/password.png?raw=true)
+</details>
 
-Name 为 PASSWORD 的在 Value 里填入 UIS 密码。这里可以不用担心安全性问题，这些 scecrets 的值只有你能看见，此外因为背后是 GitHub 为你保障安全——GitHub 的安全性应该比复旦的 UIS 要高。
-
-微信收到开启成功填写的通知
-Name 为 IYUU_TOKEN 的在Value 中填入 token，在 http://iyuu.cn/ 申请token 
-
-通过 GitHub Action，每天十点会自动运行脚本帮你填写 PAFD，填写的地址是上一次的位置，从而你再也不用担心被辅导员催啦~
+至此，部署完毕。每天早晨十点会自动运行脚本帮你填写上一次的位置，微信公众号收到打卡的结果。
