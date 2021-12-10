@@ -23,9 +23,9 @@
 ![new-secret.png](https://i.loli.net/2020/10/28/sxTuBFtRvzSgUaA.png)
 
 然后创建三个值
-- secret名字必须为 `STD_ID` 的在 Value 里填入 `学号`
-- secret名字必须为 `PASSWORD` 的在 Value 里填入 `UIS密码`。这里可以不用担心安全性问题，这些 scecrets 的值只有你能看见，此外因为背后是 GitHub 为你保障安全——GitHub 的安全性应该比复旦的 UIS 要高。
-- secret名字必须为 `IYUU_TOKEN` 的在 Value 中填入 `token`，在 http://iyuu.cn/ 申请 `token` 
+- secret 名字为 `STD_ID` 的在 Value 里填入 `学号`
+- secret 名字为 `PASSWORD` 的在 Value 里填入 `UIS密码`。这里可以不用担心安全性问题，这些 scecrets 的值只有你能看见，此外因为背后是 GitHub 为你保障安全——GitHub 的安全性应该比复旦的 UIS 要高
+- secret 名字为 `IYUU_TOKEN` 的在 Value 中填入 `token`，在 http://iyuu.cn/ 申请 `token` 
 
 ### 3. 启用 Actions
 
