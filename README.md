@@ -19,12 +19,15 @@ credit: 这份代码受 [daily_fudan](https://github.com/k652/daily_fudan) 启�
 
 ![create-secrets](https://github.com/fducslg/pafd-automated/blob/master/docs/create-secrets.png?raw=true)
 
-然后创建两个值，Name 为 STD_ID 的在 Value 里填入学号
+然后创建三个值，Name 为 STD_ID 的在 Value 里填入学号
 
 ![id](https://github.com/fducslg/pafd-automated/blob/master/docs/id.png?raw=true)
 
 ![password](https://github.com/fducslg/pafd-automated/blob/master/docs/password.png?raw=true)
 
 Name 为 PASSWORD 的在 Value 里填入 UIS 密码。这里可以不用担心安全性问题，这些 scecrets 的值只有你能看见，此外因为背后是 GitHub 为你保障安全——GitHub 的安全性应该比复旦的 UIS 要高。
+
+微信收到开启成功填写的通知
+Name 为 IYUU_TOKEN 的在Value 中填入 token，在 http://iyuu.cn/ 申请token 
 
 通过 GitHub Action，每天十点会自动运行脚本帮你填写 PAFD，填写的地址是上一次的位置，从而你再也不用担心被辅导员催啦~
