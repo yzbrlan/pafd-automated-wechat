@@ -132,7 +132,7 @@ class Fudan:
         self.session.close()
         print("◉关闭会话")
         print("************************")
-        sys_exit(exit_code)
+        # sys_exit(exit_code)
 
 
 class Zlapp(Fudan):
@@ -324,6 +324,7 @@ if __name__ == '__main__':
         else:
             iy_info("平安复旦：本次提交失败", gl_info)
         daily_fudan.close(1)
+        sys_exit()
     else:
         def iy_info(text, desp=""):
             pass
