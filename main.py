@@ -270,8 +270,8 @@ def get_account():
     uid = getenv("STD_ID")
     psw = getenv("PASSWORD")
     IYUU_TOKE = getenv("IYUU_TOKEN")
-    if uid != None and psw != None:
-        print("从环境变量中获取了用户名和密码！")
+    if uid != None and psw != None and IYUU_TOKE != None:
+        print("从环境变量中获取了用户名和密码及Token！")
         return uid, psw, IYUU_TOKE
     print("\n\n请仔细阅读以下日志！！\n请仔细阅读以下日志！！！！\n请仔细阅读以下日志！！！！！！\n\n")
     if os_path.exists("account.txt"):
@@ -306,7 +306,7 @@ if __name__ == '__main__':
     code_url = "https://zlapp.fudan.edu.cn/backend/default/code"
     daily_fudan = Zlapp(uid, psw,
                         url_login=zlapp_login, url_code=code_url)
-    if IYUU_TOKE != None and IYUU_TOKE.startswith('IYUU'):
+    if IYUU_TOKE.startswith('IYUU'):
         iy_info = iyuu(IYUU_TOKE)
         daily_fudan.login()
         if not daily_fudan.login():
@@ -330,5 +330,4 @@ if __name__ == '__main__':
 
 
         print("请按readme操作，以正确完成配置～\n")
-        iy_info("请按readme操作，以正确完成配置～\n")
         sys_exit(1)
