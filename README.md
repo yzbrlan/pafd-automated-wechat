@@ -1,3 +1,5 @@
+⚠注意：最近 opencv 突然报错，已解决，更新代码即可。具体请看 [opencv-python突然更新无法识别验证码](https://github.com/FDUCSLG/pafd-automated/issues/20#issuecomment-1002902899)
+
 因为 [Limour-dev/daily_fudan_core](https://github.com/Limour-dev/daily_fudan_core) 识别验证码非免费，
 所以结合了两份代码，主要在 [FDUCSLG/pafd-automated](https://github.com/FDUCSLG/pafd-automated) 的基础上加入了 [Limour-dev/daily_fudan_core](https://github.com/Limour-dev/daily_fudan_core) 的微信消息推送的功能 
 
